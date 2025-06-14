@@ -1,0 +1,96 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Sign Up Page</title>  
+    <style>  
+        body {  
+            background-color: #00ffff; /* Light purple pink color */  
+            font-family: Arial, sans-serif;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            height: 100vh;  
+            margin: 0;  
+        }  
+        .container {  
+            background: white;  
+            padding: 20px;  
+            border-radius: 10px;  
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);  
+            width: 300px;  
+        }  
+        h2 {  
+            text-align: center;  
+            color: #333;  
+        }  
+        input[type="text"],   
+        input[type="email"],   
+        input[type="password"],   
+        input[type="tel"] {  
+            width: 100%;  
+            padding: 10px;  
+            margin: 10px 0;  
+            border: 1px solid #ccc;  
+            border-radius: 5px;  
+        }  
+        input[type="submit"] {  
+            background-color: #6C5B7F;  
+            color: white;  
+            border: none;  
+            border-radius: 5px;  
+            padding: 10px;  
+            cursor: pointer;  
+            width: 100%;  
+        }  
+        input[type="submit"]:hover {  
+            background-color: #355C7D;  
+        }  
+        .message {  
+            text-align: center;  
+            color: green;  
+            margin-top: 10px;  
+        }  
+    </style>  
+</head>  
+<body>  
+
+<div class="container">  
+    <h2>Sign Up</h2>  
+    <form id="signupForm" onsubmit="return handleSubmit(event)">  
+        <input type="text" id="firstName" placeholder="First Name" required>  
+        <input type="text" id="middleName" placeholder="Middle Name">  
+        <input type="text" id="lastName" placeholder="Last Name" required>  
+        <input type="text" id="username" placeholder="Username" required>  
+        <input type="email" id="email" placeholder="Email" required>  
+        <input type="password" id="password" placeholder="Password" required>  
+        <input type="tel" id="phone" placeholder="Phone Number" required>  
+        <input type="submit" value="Sign Up">  
+    </form>  
+    <div class="message" id="message"></div>  
+</div>  
+
+<script>  
+    function handleSubmit(event) {  
+        event.preventDefault(); // Prevent form submission  
+        const firstName = document.getElementById('firstName').value;  
+        const middleName = document.getElementById('middleName').value;  
+        const lastName = document.getElementById('lastName').value;  
+        const username = document.getElementById('username').value;  
+        const email = document.getElementById('email').value;  
+        const password = document.getElementById('password').value;  
+        const phone = document.getElementById('phone').value;  
+
+        // Here we can handle the form data as needed  
+        // For example, print it to console or send it to a server  
+        console.log({ firstName, middleName, lastName, username, email, password, phone });  
+
+        // Show a success message  
+        const messageDiv = document.getElementById('message');  
+        messageDiv.innerText = "Sign up successful! Welcome, " + firstName + "!";  
+    }  
+</script>  
+
+</body>  
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Contact Us</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            background-color: #f4f4f9;  
+            margin: 0;  
+            padding: 0;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            height: 100vh;  
+        }  
+        
+        .contact-form {  
+            background: white;  
+            border-radius: 10px;  
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  
+            padding: 30px;  
+            max-width: 400px;  
+            width: 100%;  
+        }  
+
+        .contact-form h2 {  
+            margin-bottom: 20px;  
+            color: #333;  
+            text-align: center;  
+        }  
+
+        .form-group {  
+            margin-bottom: 15px;  
+        }  
+
+        .form-group label {  
+            display: block;  
+            margin-bottom: 5px;  
+            color: #555;  
+        }  
+
+        .form-group input,  
+        .form-group textarea {  
+            width: 100%;  
+            padding: 10px;  
+            border: 1px solid #ccc;  
+            border-radius: 5px;  
+            resize: none;  
+        }  
+
+        .form-group textarea {  
+            height: 100px;  
+        }  
+
+        button {  
+            width: 100%;  
+            padding: 10px;  
+            background-color: #28a745;  
+            border: none;  
+            border-radius: 5px;  
+            color: white;  
+            font-size: 16px;  
+            cursor: pointer;  
+            transition: background-color 0.3s;  
+        }  
+
+        button:hover {  
+            background-color: #218838;  
+        }  
+
+        .form-group.error input,  
+        .form-group.error textarea {  
+            border-color: #dc3545;  
+        }  
+
+        .form-group.error label {  
+            color: #dc3545;  
+        }  
+
+        .form-group.success input,  
+        .form-group.success textarea {  
+            border-color: #28a745;  
+        }  
+
+        .form-group.success label {  
+            color: #28a745;  
+        }  
+    </style>  
+</head>  
+<body>  
+
+<div class="contact-form">  
+    <h2>Contact Us</h2>  
+    <form id="contactForm">  
+        <div class="form-group" id="nameGroup">  
+            <label for="name">Name</label>  
+            <input type="text" id="name" name="name" required>  
+        </div>  
+        <div class="form-group" id="emailGroup">  
+            <label for="email">Email</label>  
+            <input type="email" id="email" name="email" required>  
+        </div>  
+        <div class="form-group" id="messageGroup">  
+            <label for="message">Message</label>  
+            <textarea id="message" name="message" required></textarea>  
+        </div>  
+        <button type="submit">Send Message</button>  
+    </form>  
+    <div id="responseMessage" style="margin-top: 20px; text-align: center;"></div>  
+</div>  
+
+<script>  
+    document.getElementById('contactForm').addEventListener('submit', function(event) {  
+        event.preventDefault();  
+
+        // Simple validation  
+        const name = document.getElementById('name');  
+        const email = document.getElementById('email');  
+        const message = document.getElementById('message');  
+        
+        let isError = false;  
+
+        if (!name.value.trim()) {  
+            name.parentElement.classList.add('error');  
+            isError = true;  
+        } else {  
+            name.parentElement.classList.remove('error');  
+            name.parentElement.classList.add('success');  
+        }  
+
+        if (!email.value.trim() || !validateEmail(email.value.trim())) {  
+            email.parentElement.classList.add('error');  
+            isError = true;  
+        } else {  
+            email.parentElement.classList.remove('error');  
+            email.parentElement.classList.add('success');  
+        }  
+
+        if (!message.value.trim()) {  
+            message.parentElement.classList.add('error');  
+            isError = true;  
+        } else {  
+            message.parentElement.classList.remove('error');  
+            message.parentElement.classList.add('success');  
+        }  
+
+        if (!isError) {  
+            // Submit the form (simulate here)  
+            document.getElementById('responseMessage').innerText = 'Message sent successfully!';  
+            document.getElementById('contactForm').reset();  
+            // Reset success classes  
+            document.querySelectorAll('.form-group').forEach(group => {  
+                group.classList.remove('success');  
+            });  
+        }  
+    });  
+
+    function validateEmail(email) {  
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  
+        return re.test(String(email).toLowerCase());  
+    }  
+</script>  
+
+</body>  
+</html>

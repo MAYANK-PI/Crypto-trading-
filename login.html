@@ -1,0 +1,107 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Login Page</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            background-color: #ffebcd;  
+            margin: 0;  
+            padding: 0;  
+            height: 100vh; /* Full height */  
+            display: flex;  
+            justify-content: center; /* Center horizontally */  
+            align-items: center; /* Center vertically */  
+        }  
+
+        .login-container {  
+            background-color: white;  
+            padding: 20px;  
+            border-radius: 8px;  
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+            width: 300px; /* Fixed width */  
+        }  
+
+        h2 {  
+            text-align: center;  
+            margin-bottom: 20px;  
+        }  
+
+        .form-group {  
+            margin-bottom: 15px;  
+        }  
+
+        label {  
+            display: block;  
+            margin-bottom: 5px;  
+        }  
+
+        input[type="text"],  
+        input[type="password"] {  
+            width: 100%; /* Full width */  
+            padding: 10px;  
+            border: 1px solid #ccc;  
+            border-radius: 4px;  
+        }  
+
+        button {  
+            width: 100%; /* Full width */  
+            padding: 10px;  
+            background-color: #007BFF;  
+            border: none;  
+            border-radius: 4px;  
+            color: white;  
+            font-size: 16px;  
+            cursor: pointer;  
+        }  
+
+        button:hover {  
+            background-color: #0056b3;  
+        }  
+
+        .error-message {  
+            color: red;  
+            display: none; /* Hidden by default */  
+            text-align: center;  
+            margin-top: 10px;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div class="login-container">  
+        <h2>Login</h2>  
+        <form id="loginForm">  
+            <div class="form-group">  
+                <label for="username">Username</label>  
+                <input type="text" id="username" required>  
+            </div>  
+            <div class="form-group">  
+                <label for="password">Password</label>  
+                <input type="password" id="password" required>  
+            </div>  
+            <button type="submit">Login</button>  
+            <div class="error-message" id="errorMessage">Invalid credentials. Please try again.</div>  
+        </form>  
+    </div>  
+
+    <script>  
+        document.getElementById('loginForm').addEventListener('submit', function(event) {  
+            event.preventDefault(); // Prevent form submission  
+
+            var username = document.getElementById('username').value;  
+            var password = document.getElementById('password').value;  
+
+            // Simulating simple authentication: username is "admin" and password is "password"  
+            if (username === 'admin' && password === 'password') {  
+                alert('Login successful!');  
+                // Redirect or perform further actions here  
+            } else {  
+                // Show error message  
+                document.getElementById('errorMessage').style.display = 'block';  
+            }  
+        });  
+    </script>  
+</body>  
+</html>

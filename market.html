@@ -1,0 +1,127 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Crypto Trading Market</title> 
+<style>s
+
+body {  
+    font-family: Arial, sans-serif;  
+    background-color: #f4f4f4;  
+    color: #333;  
+    margin: 0;  
+    padding: 20px;  
+}  
+
+.container {  
+    max-width: 800px;  
+    margin: auto;  
+    background: white;  
+    border-radius: 8px;  
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);  
+    overflow: hidden;  
+}  
+
+header {  
+    background: #007bff;  
+    color: white;  
+    padding: 10px 20px;  
+    text-align: center;  
+}  
+
+.market {  
+    display: flex;  
+    flex-direction: column;  
+}  
+
+.stock {  
+    background: #f9f9f9;  
+    border: 1px solid #e0e0e0;  
+    border-radius: 8px;  
+    margin: 10px;  
+    padding: 15px;  
+    transition: transform 0.3s;  
+    position: relative;  
+}  
+
+.stock:hover {  
+    transform: translateY(-5px);  
+}  
+
+.price {  
+    font-size: 1.5em;  
+    font-weight: bold;  
+}  
+
+.status {  
+    font-weight: bold;  
+    padding: 5px;  
+    border-radius: 4px;  
+    text-align: center;  
+    margin: 10px 0;  
+}  
+
+.gain {  
+    background-color: #d4edda;  
+    color: #155724;  
+}  
+
+.loss {  
+    background-color: #f8d7da;  
+    color: #721c24;  
+}  
+
+.buy-button {  
+    background-color: #28a745;  
+    color: white;  
+    border: none;  
+    padding: 10px 15px;  
+    border-radius: 4px;  
+    cursor: pointer;  
+    transition: background-color 0.3s;  
+}  
+
+.buy-button:hover {  
+    background-color: #218838;  
+}  
+
+@keyframes pulse {  
+    0% { transform: scale(1); }  
+    50% { transform: scale(1.05); }  
+    100% { transform: scale(1); }  
+}  
+
+.buy-button:active {  
+    animation: pulse 0.3s forwards;  
+}</style>	
+</head>  
+<body>  
+<header>  
+            <h1>Trading Market</h1>  
+        </header>  
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-crypto-coins-heatmap.js" async>
+  {
+  "dataSource": "CryptoWithoutStable",
+  "blockSize": "market_cap_calc",
+  "blockColor": "change",
+  "locale": "en",
+  "symbolUrl": "",
+  "colorTheme": "light",
+  "hasTopBar": false,
+  "isDataSetEnabled": false,
+  "isZoomEnabled": true,
+  "hasSymbolTooltip": true,
+  "isMonoSize": false,
+  "width": 700,
+  "height": 600
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+</body>  
+</html>
